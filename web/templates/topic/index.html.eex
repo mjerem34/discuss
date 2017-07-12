@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <caption>Topics</caption>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <%= for topic <- @topics do %>
+      <tr data-link="<%= topic_path(@conn, :edit, topic.id)%>">
+        <td><%= topic.id %></td>
+        <td><%= topic.title %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="fixed-action-btn">
+  <%= link to: topic_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+    <% end %>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("tr[data-link]").click(function() {
+      window.location = $(this).data("link");
+    })
+  });
+</script>

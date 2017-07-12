@@ -1,0 +1,8 @@
+<%= form_for @changeset, topic_path(@conn, :update, @topic.id), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+  <%= submit "Save topic", class: "btn btn-success"%>
+<% end %>
+<%= link "Delete topic", to: topic_path(@conn, :delete, @topic.id), class: "btn btn-danger", method: :delete %>
