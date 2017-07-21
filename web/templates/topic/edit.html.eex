@@ -3,6 +3,11 @@
     <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
     <%= error_tag f, :title %>
   </div>
-  <%= submit "Save topic", class: "btn btn-success"%>
+  <%= if @conn.assigns.user.id == @topic.user_id do %>
+    <%= submit "Save topic", class: "btn btn-success"%>
+    <% end %>
+
 <% end %>
-<%= link "Delete topic", to: topic_path(@conn, :delete, @topic.id), class: "btn btn-danger", method: :delete %>
+<%= if @conn.assigns.user.id == @topic.user_id do %>
+  <%= link "Delete topic", to: topic_path(@conn, :delete, @topic.id), class: "btn btn-danger", method: :delete %>
+<% end %>

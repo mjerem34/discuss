@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <caption>Topics</caption>
+  <h4>Topics</h4>
   <table>
     <thead>
       <th>ID</th>
@@ -16,9 +16,11 @@
   </table>
 </div>
 <div class="fixed-action-btn">
-  <%= link to: topic_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+  <%= if @conn.assigns[:user] do %>
+    <%= link to: topic_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">add</i>
     <% end %>
+  <% end %>
 </div>
 
 

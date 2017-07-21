@@ -1,2 +1,2 @@
 <h2>Topic : <%= @topic.title %></h2>
-<%= link "Delete topic", to: topic_path(@conn, :destroy, @topic.id), class: "btn btn-danger", method: :delete %>
+<%= link "Delete topic", to: topic_path(@conn, :delete, @topic.id), class: "btn btn-danger", method: :delete %>
